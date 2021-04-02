@@ -35,3 +35,11 @@ MIT
 Copyright (c) 2021 Victoria West
 ## Contact Information
 Victoria West email@email.com
+
+
+## Tests
+Describe: getDaysByName
+Test: "Return number of days marked "Yes" for a person whose name is in the example data"
+Code:
+getDaysByName(sampleInfo:["Sam"]);
+Expected Output: 2
