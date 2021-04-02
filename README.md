@@ -43,3 +43,8 @@ Test: "Return number of days marked "Yes" for a person whose name is in the exam
 Code:
 getDaysByName(sampleInfo:["Sam"]);
 Expected Output: 2
+
+Test: "Return number of days marked "Yes" by day of the week"
+Code:
+getDaysByWeekDay(sampleInfo, 4);
+Expected Output: 1

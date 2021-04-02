@@ -3,9 +3,9 @@ let sampleInfo = {"Sam":{"dayChoices":["Yes", "No", "Yes", "", ""], "best":3, "m
 "Jack":{"dayChoices":["No", "No", "", "", ""], "best":2, "min":2, "max":2},
 "Jill":{"dayChoices":["Yes", "", "Yes", "", "Yes"], "best":2, "min":2, "max":2}};
 
-function getDaysByName(arrayAndName) {
+function getDaysByName(nameInDictionary) {
   let dayCount=0;
-  arrayAndName["dayChoices"].forEach(function(day){
+  nameInDictionary["dayChoices"].forEach(function(day){
     if (day==="Yes") {
       dayCount ++;
     }
@@ -13,11 +13,20 @@ function getDaysByName(arrayAndName) {
   return dayCount;
 }
 
-
-//TESTS
-function runTest(input, expected){
-  const result=getDaysByName(input);
-  console.log("Result: "+ result + "\nExpected: " + expected);
+function getDaysByWeekDay(dictionary, weekday) {
+  let dayCount=0;
+  for(let person in dictionary){
+    if(dictionary[person]["dayChoices"][weekday]==="Yes"){
+      dayCount++;
+    }
+  };
+  return dayCount;
 }
 
-runTest(sampleInfo["Sam"], 2);
+
+//TESTS
+let result=getDaysByName(sampleInfo["Sam"]);
+console.log("Result: "+ result + "\nExpected: 2");
+
+result=getDaysByWeekDay(sampleInfo, 4);
+console.log("Result: "+ result + "\nExpected: 1");
