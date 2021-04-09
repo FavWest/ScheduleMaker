@@ -38,13 +38,21 @@ Victoria West email@email.com
 
 
 ## Tests
-Describe: getDaysByName
+#### Describe: getDaysByName PASSED
 Test: "Return number of days marked "Yes" for a person whose name is in the example data"
 Code:
 getDaysByName(sampleInfo:["Sam"]);
 Expected Output: 2
 
+#### Describe: getDaysByWeekDay PASSED
 Test: "Return number of days marked "Yes" by day of the week"
 Code:
 getDaysByWeekDay(sampleInfo, 4);
 Expected Output: 1
+
+#### Describe: ChildInfo
+Test: "Should construct a ChildInfo type object"
+Code:
+let lily = new Child("Lily", "", "", "", "", "No", 3, 2, 3);
+console.log(lily.name, lily.dayChoices[4], lily.best);
+Expected Output: "Lily" "Yes" 3
