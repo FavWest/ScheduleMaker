@@ -53,6 +53,14 @@ Expected Output: 1
 #### Describe: ChildInfo
 Test: "Should construct a ChildInfo type object"
 Code:
-let lily = new Child("Lily", "", "", "", "", "No", 3, 2, 3);
+let lily = new ChildInfo("Lily", "", "", "", "", "No", 3, 2, 3);
 console.log(lily.name, lily.dayChoices[4], lily.best);
 Expected Output: "Lily" "Yes" 3
+
+#### Describe: ClassList
+Test: "Construct an ClassList type object"
+Code:
+let myClass = new ClassList;
+console.log(myClass);
+Expected Output: {children:{}, currentId:0};
+
