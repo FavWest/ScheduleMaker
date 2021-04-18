@@ -43,11 +43,18 @@ class ChildInfo{
 
 
 //TESTS
-let sampleInfo = {1:{name: "Sam", "dayChoices":["Yes", "No", "Yes", "", ""], "best":3, "min":3, "max":3}, 
-2:{name:"Jack", "dayChoices":["No", "No", "", "", ""], "best":2, "min":2, "max":2},
-3:{name:"Jill", "dayChoices":["Yes", "", "Yes", "", "Yes"], "best":2, "min":2, "max":2}};
+// let sampleInfo = {1:{name: "Sam", "dayChoices":["Yes", "No", "Yes", "", ""], "best":3, "min":3, "max":3}, 
+// 2:{name:"Jack", "dayChoices":["No", "No", "", "", ""], "best":2, "min":2, "max":2},
+// 3:{name:"Jill", "dayChoices":["Yes", "", "Yes", "", "Yes"], "best":2, "min":2, "max":2}};
 
-let allInfo = new AllInfo();
-let lily=new ChildInfo("Lily", "", "Yes", "", "", "Yes", 3, 2, 3);
-allInfo.addChildInfo(lily);
-console.log(allInfo.getDaysById(1));
+// let allInfo = new AllInfo();
+// let lily=new ChildInfo("Lily", "", "Yes", "", "", "Yes", 3, 2, 3);
+// allInfo.addChildInfo(lily);
+
+$(document).ready(function() {
+  let allInfo = new AllInfo();
+  $("#child-info").submit(function(event){
+    event.preventDefault();
+    $("#schedule").append(`<tr><td>${$("#name").val()}</td><td>${$("#Monday").val()}</td><td>${$("#Tuesday").val()}</td><td>${$("#Wednesday").val()}</td><td>${$("#Thursday").val()}</td><td>${$("#Friday").val()}</td><td>${$("#best-number").val()}</td></tr>`);
+  });
+});
