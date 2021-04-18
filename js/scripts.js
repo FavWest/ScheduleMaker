@@ -50,11 +50,19 @@ class ChildInfo{
 // let allInfo = new AllInfo();
 // let lily=new ChildInfo("Lily", "", "Yes", "", "", "Yes", 3, 2, 3);
 // allInfo.addChildInfo(lily);
+let allInfo = new AllInfo();
 
 $(document).ready(function() {
-  let allInfo = new AllInfo();
   $("#child-info").submit(function(event){
     event.preventDefault();
+    let childInfo = new ChildInfo($("#name").val(),
+      $("#Monday").val(),
+      $("#Tuesday").val(),
+      $("#Wednesday").val(),
+      $("#Thursday").val(),
+      $("#Friday").val(),
+      $("#best-number").val());
+    allInfo.addChildInfo(childInfo);
     $("#schedule").append(`<tr><td>${$("#name").val()}</td><td>${$("#Monday").val()}</td><td>${$("#Tuesday").val()}</td><td>${$("#Wednesday").val()}</td><td>${$("#Thursday").val()}</td><td>${$("#Friday").val()}</td><td>${$("#best-number").val()}</td></tr>`);
   });
 });
