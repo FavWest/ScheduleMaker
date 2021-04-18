@@ -53,16 +53,38 @@ class ChildInfo{
 let allInfo = new AllInfo();
 
 $(document).ready(function() {
+  function buildRow(id){
+    let name = allInfo.info[id].name;
+    let mon=allInfo.info[id]["dayChoices"][0];
+    if (mon==="yes"){
+      mon = `<td class="yes">${allInfo.info[id]["dayChoices"][0]}</td>`
+    }
+    else {
+      mon = `<td>${allInfo.info[id]["dayChoices"][0]}</td>`;
+    }
+    let tues = allInfo.info[id]["dayChoices"][1];
+    $("#schedule").append(`<tr id="${id}">` +
+    `<td>${name}</td>` +
+    `${mon}` + 
+    `<td>${tues}</td><td>${allInfo.info[id]["dayChoices"][2]}</td><td>${allInfo.info[id]["dayChoices"][3]}</td><td>${allInfo.info[id]["dayChoices"][4]}</td><td>${allInfo.info[id]["best"]}</td></tr>`);
+  }
+
+  function newInfo(){
+    let childInfo= new ChildInfo($("#name").val(),
+    $("#Monday").val(),
+    $("#Tuesday").val(),
+    $("#Wednesday").val(),
+    $("#Thursday").val(),
+    $("#Friday").val(),
+    $("#best-number").val());
+    return childInfo;
+  }
+
   $("#child-info").submit(function(event){
     event.preventDefault();
-    let childInfo = new ChildInfo($("#name").val(),
-      $("#Monday").val(),
-      $("#Tuesday").val(),
-      $("#Wednesday").val(),
-      $("#Thursday").val(),
-      $("#Friday").val(),
-      $("#best-number").val());
+    let childInfo = newInfo();
     allInfo.addChildInfo(childInfo);
-    $("#schedule").append(`<tr><td>${$("#name").val()}</td><td>${$("#Monday").val()}</td><td>${$("#Tuesday").val()}</td><td>${$("#Wednesday").val()}</td><td>${$("#Thursday").val()}</td><td>${$("#Friday").val()}</td><td>${$("#best-number").val()}</td></tr>`);
+    let id = allInfo.currentID;
+    buildRow(id);
   });
 });

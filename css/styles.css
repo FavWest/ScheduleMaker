@@ -13,3 +13,7 @@ td, th {
 #childInfo {
   margin: 3%;
 }
+
+.yes {
+  background-color: aqua;
+}
